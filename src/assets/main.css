@@ -1,0 +1,64 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600;700&family=DM+Sans:wght@300;400;500&display=swap');
+
+:root {
+  --black: #1C1C1C;
+  --dark: #3A3A3A;
+  --mid: #BFBFBF;
+  --light: #F5F5F5;
+  --accent: #D9A5A5;
+  --white: #ffffff;
+}
+
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 16.5px;
+  background: var(--black);
+  color: var(--light);
+  overflow-x: hidden;
+}
+
+section { padding: 7rem 5%; }
+.section-label {
+  font-size: .72rem; letter-spacing: .25em; text-transform: uppercase;
+  color: var(--accent); margin-bottom: .8rem;
+}
+.section-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(2.2rem, 4vw, 3.4rem); font-weight: 600; line-height: 1.1;
+  color: var(--light); margin-bottom: 1.2rem;
+}
+.section-sub {
+  font-size: 1.04rem; line-height: 1.82; color: var(--mid); max-width: 580px;
+}
+.divider { width: 48px; height: 2px; background: var(--accent); margin: 1.6rem 0; }
+
+.btn-primary {
+  padding: .9rem 2rem; background: var(--accent); color: var(--black);
+  font-family: 'DM Sans', sans-serif; font-size: .86rem;
+  letter-spacing: .1em; text-transform: uppercase; border: none;
+  cursor: pointer; text-decoration: none; border-radius: 2px;
+  transition: opacity .25s, transform .2s; display: inline-block;
+}
+.btn-primary:hover { opacity: .88; transform: translateY(-2px); }
+
+.btn-outline {
+  padding: .9rem 2rem; background: transparent;
+  border: 1px solid rgba(191,191,191,.4); color: var(--mid);
+  font-family: 'DM Sans', sans-serif; font-size: .86rem;
+  letter-spacing: .1em; text-transform: uppercase;
+  cursor: pointer; text-decoration: none; border-radius: 2px;
+  transition: border-color .25s, color .25s, transform .2s; display: inline-block;
+}
+.btn-outline:hover { border-color: var(--accent); color: var(--accent); transform: translateY(-2px); }
+
+.fade-up {
+  opacity: 0; transform: translateY(30px);
+  transition: opacity .7s ease, transform .7s ease;
+}
+.fade-up.visible { opacity: 1; transform: translateY(0); }
+
+@media (max-width: 560px) {
+  section { padding: 5rem 5%; }
+}
