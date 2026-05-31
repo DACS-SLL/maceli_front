@@ -1,6 +1,13 @@
 const rawApiBaseUrl = import.meta.env.VITE_API_BASE_URL || '/api'
 
-export const API_BASE_URL = rawApiBaseUrl.replace(/\/+$/, '')
+function normalizeApiBaseUrl(value) {
+  const trimmed = value.replace(/\/+$/, '')
+  if (trimmed === '/api' || /\/api$/i.test(trimmed)) return trimmed
+  if (/^https?:\/\//i.test(trimmed)) return `${trimmed}/api`
+  return trimmed
+}
+
+export const API_BASE_URL = normalizeApiBaseUrl(rawApiBaseUrl)
 export const WHATSAPP_NUMBER = (import.meta.env.VITE_WHATSAPP_NUMBER || '51977545862').replace(/\D/g, '')
 export const PUBLIC_WHATSAPP = import.meta.env.VITE_PUBLIC_WHATSAPP || '+51 977 545 862'
 export const CONTACT_EMAIL = import.meta.env.VITE_CONTACT_EMAIL || 'hola@maceli.pe'
